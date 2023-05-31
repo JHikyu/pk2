@@ -14,55 +14,52 @@ struct cell {
 
 struct cell dictionary[SIZE];
 
-
-int hash(int x) {
-  return x % SIZE;
-}
-
 void insert(int x) {
-  struct cell *currentCell = &dictionary[hash(x)];
+  struct cell *currentCell = &dictionary[x % SIZE];
 
   if(currentCell->status == FREE) {
     currentCell->status = OCCUPIED;
     currentCell->value = x;
 
-    printf("%d in %d gespeichert\n", x, hash(x));
+    printf("%d in %d gespeichert\n", x, x % SIZE);
     return;
   }
 
 
   //* Collision
+  // printf("%d mit %d belegt, suche freie cell fuer %d\n", x % SIZE, currentCell->value, x);
 
-  printf("%d mit %d belegt, suche freie cell fuer %d\n", hash(x), currentCell->value, x);
+  struct cell *searchCell;
+  for(int i = x+1 ; i < x+SIZE ; i++) {
+    searchCell = &dictionary[i % SIZE];
 
-  int modifier;
-  struct cell *searchCell = &dictionary[hash(x+modifier)];
-  while((hash(x+ (modifier++)) != hash(x)) && searchCell->status == OCCUPIED) {
-    searchCell = &dictionary[hash(x+modifier)];
-    printf("%d mit %d belegt, suche freie cell fuer %d\n", hash(x+modifier), searchCell->value, x);
+    if(searchCell->status == FREE) {
+      searchCell->status = OCCUPIED;
+      searchCell->value = x;
+
+      printf("%d in %d gespeichert\n", x, i % SIZE);
+      return;
+    }
+
+    // printf("%d: %d\n", i % SIZE, searchCell->status);
   }
-
-  searchCell->status = OCCUPIED;
-  searchCell->value = x;
-
-  printf("%d in %d gespeichert\n", x, hash(x+modifier));
+  
+  printf("Keine Zelle fuer %d gefunden..\n", x);
 }
 
 int main() {
   insert(2);
   insert(2);
   insert(2);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  insert(3);
-  // insert(2);
+  insert(2);
+  insert(7);
+  insert(0);
+  insert(2);
+  insert(2);
+  insert(2);
+  insert(2);
+  insert(2);
+  insert(2);
   // insert(2);
   // insert(2);
   // insert(2);
