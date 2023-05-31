@@ -25,7 +25,6 @@ void insert(int x) {
     return;
   }
 
-
   //* Collision
   // printf("%d mit %d belegt, suche freie cell fuer %d\n", x % SIZE, currentCell->value, x);
 
@@ -47,15 +46,30 @@ void insert(int x) {
   printf("Keine Zelle fuer %d gefunden..\n", x);
 }
 
+int member(int x) {
+  struct cell *currentCell = &dictionary[x % SIZE];
+
+  // First cell match
+  if(currentCell->status == OCCUPIED && currentCell->value == x) return 1;
+  
+  for(int i = x+1 ; i < x+1+SIZE ; i++) {
+    currentCell = &dictionary[i % SIZE];
+    // printf("%d: %d\n", i%SIZE, currentCell->value);
+    if(currentCell->value == x) return 1;
+  }
+
+  return 0;
+}
+
 int main() {
-  insert(2);
-  insert(2);
+  insert(1);
   insert(2);
   insert(2);
   insert(7);
   insert(0);
   insert(2);
-  insert(2);
+  insert(534);
+  insert(1111);
   insert(2);
   insert(2);
   insert(2);
@@ -65,6 +79,11 @@ int main() {
   // insert(2);
   // insert(7);
   // insert(12);
+
+  printf("Member: %d? %d\n", 2, member(2));
+  printf("Member: %d? %d\n", 534, member(534));
+  printf("Member: %d? %d\n", 1111, member(1111));
+  printf("Member: %d? %d\n", 124, member(124));
 
   // printf("%d\n", dictionary[0]);
 
