@@ -54,36 +54,46 @@ int member(int x) {
   
   for(int i = x+1 ; i < x+1+SIZE ; i++) {
     currentCell = &dictionary[i % SIZE];
-    // printf("%d: %d\n", i%SIZE, currentCell->value);
-    if(currentCell->value == x) return 1;
+    if(currentCell->status == OCCUPIED && currentCell->value == x) return 1;
   }
 
   return 0;
 }
 
+void printDictionary() {
+  for(int i = 0 ; i < SIZE ; i++) {
+    printf("%5.d ", i);
+  }
+  printf("\n");
+
+  for(int i = 0 ; i < SIZE ; i++) {
+    struct cell currentCell = dictionary[i];
+    printf("%5.d ", currentCell.value);
+  }
+  printf("\n");
+}
+
 int main() {
   insert(1);
-  insert(2);
-  insert(2);
+  // insert(2);
+  // insert(2);
   insert(7);
   insert(0);
   insert(2);
   insert(534);
   insert(1111);
   insert(2);
-  insert(2);
-  insert(2);
-  insert(2);
   // insert(2);
   // insert(2);
-  // insert(2);
-  // insert(7);
+  insert(5234);
   // insert(12);
 
   printf("Member: %d? %d\n", 2, member(2));
   printf("Member: %d? %d\n", 534, member(534));
   printf("Member: %d? %d\n", 1111, member(1111));
   printf("Member: %d? %d\n", 124, member(124));
+
+  printDictionary();
 
   // printf("%d\n", dictionary[0]);
 
