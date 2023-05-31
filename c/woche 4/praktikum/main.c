@@ -60,6 +60,13 @@ int member(int x) {
   return 0;
 }
 
+int delete(int x) {
+  for(int i = 0 ; i < SIZE ; i++) {
+    struct cell *currentCell = &dictionary[i];
+    if(currentCell->status == OCCUPIED && currentCell->value == x) currentCell->status = FREE;
+  }
+}
+
 void printDictionary() {
   for(int i = 0 ; i < SIZE ; i++) {
     printf("%5.d ", i);
@@ -68,6 +75,12 @@ void printDictionary() {
 
   for(int i = 0 ; i < SIZE ; i++) {
     struct cell currentCell = dictionary[i];
+
+    if(currentCell.status == FREE) {
+    printf("%5.d ", -1);
+      continue;
+    }
+
     printf("%5.d ", currentCell.value);
   }
   printf("\n");
@@ -92,6 +105,15 @@ int main() {
   printf("Member: %d? %d\n", 534, member(534));
   printf("Member: %d? %d\n", 1111, member(1111));
   printf("Member: %d? %d\n", 124, member(124));
+
+  printDictionary();
+
+  delete(1);
+  delete(7);
+
+  printDictionary();
+
+  insert(575);
 
   printDictionary();
 
