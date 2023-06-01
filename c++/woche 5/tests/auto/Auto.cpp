@@ -1,12 +1,17 @@
 #include "Auto.h"
 #include <iostream>
 
-Auto::Auto(int r) {
+Auto::Auto(int r, int p) {
   reifen = r;
+  ps = p;
 }
 
 int Auto::getReifen() {
   return reifen;
+}
+
+int Auto::getPs() {
+  return ps;
 }
 
 void Auto::druckeDaten() {

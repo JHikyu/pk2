@@ -21,7 +21,7 @@ int main() {
   }
   std::cout << std::endl;
 
-  Auto a1(4);
+  Auto a1(4, 250);
   a1.druckeDaten();
 
   return 0;
