@@ -19,6 +19,18 @@ int Farbe::getBlue() {
   return blue;
 }
 
+void Farbe::setRed(int red) {
+  this->red = red;
+}
+
+void Farbe::setGreen(int green) {
+  this->green = green;
+}
+
+void Farbe::setBlue(int blue) {
+  this->blue = blue;
+}
+
 void Farbe::print() {
   std::cout << "rgb(" << red << ", " << green << ", " << blue << ")" << std::endl;
 }
