@@ -14,5 +14,9 @@
       Console.WriteLine("{0}: {1}", i, list.Get(i));
     }
 
+    
+    list[2] = 100;
+    Console.WriteLine("By Index [2]: {0}", list[2]);
+
   }
 }

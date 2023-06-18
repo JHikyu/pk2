@@ -3,6 +3,15 @@ public class ArrayList {
   public int Capacity { private set; get; }
   public int Count { private set; get; }
 
+  public double this[int index] {
+    get {
+      return Get(index);
+    }
+    set {
+      Set(index, value);
+    }
+  }
+
   public ArrayList() {
     Capacity = 1;
     feld = new double[Capacity];
