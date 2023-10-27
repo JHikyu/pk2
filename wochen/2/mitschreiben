@@ -1,0 +1,28 @@
+variable? benannter logische speicherplatz
+compilierung reihenfolge > präprozessor > compiler > assembler > linker/binder
+makefile? beschreibt abhängigkeiten
+datentyp? wertebereich und operationen
+variablen sind vorbelegt mit letztem inhalt
+definition? speicherplatz reservieren und belegen
+deklaration? name und typ bekannggeben | keine speicherfreigabe
+const typ name = 1;
+int i; int i, x; int i = 1;
+short, long, signed, unsigned > short int; long int; long;
+sizeof(short) <= sizeof(int) <= sizeof(long)
+#include <math.h> > sin, log, pow, sqrt, fabs, floor
+int >= 1; !int == 0
+
+int sum(int n) {
+	if(n == 0) return s;
+	return n + sum(--n);
+}
+
+int a;
+scanf("%d", &a);
+
+char c;
+getchar(c);
+
+int ekel(int x, int y) {
+	return x == y;
+}

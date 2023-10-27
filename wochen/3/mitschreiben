@@ -1,0 +1,86 @@
+	präprozessor
+1 sucht im quelltext nach direktiven
+2 fuehrt anweisungen aus
+3 entfernt direktiven
+4 entfernt kommentare
+
+#include <header datei>
+sucht in /urs/var
+wird durch die komplette datei ersetzt
+
+#include "header datei"
+sucht im rutime path
+
+#define ALT neu
+#define TEST(text) printf(%s, text)
+
+#if WERT printf(iwas) #endif
+
+#define MIN(a, b) (a) > (b) ? b : a
+
+	zusammengesetzte datentypen
+array
+int intArray[size];
+double dArr[] = { 1.5, 7, 8.9 };
+const int pi[] = { 3, 1, 4 };
+long table[2][5] = { {}, {} };
+
+zeichenketten
+char a = 'a';
+char hw[12] = { 'H','e','l','l','o', ' ', 'W','o','r','l','d', '\0' };
+char t[10];
+t[0] = 'T';
+char text[5] = "Text";
+char cool[5];
+strcpy(cool, "Cool");
+
+strukturen
+struct Vektor {
+	int x;
+	int y;
+	int z;
+}
+struct Vektor v1;
+v1.x = 1;
+v1.y = 5;
+v1.z = 2;
+struct Vektor vektoren[500];
+
+unions
+union digit {
+	int value;
+	double value;
+}
+
+union konvertierung {
+	double x;
+	unsigned char bytes[sizeof(double)];
+}
+union konvertierung zahl;
+zahl.x = 1.2345;
+zahl.bytes[0]; // 1
+
+enums
+enum Name {
+	const1,
+	const2,
+	const3
+};
+enum boolean {
+	false, true
+};
+enum booleangefunden;
+gefunden = true;
+enum note {
+	sehr_gut = 1,
+	gut,
+	befriedigend,
+	ausreichend,
+	mangelhaft,
+	ungenuegend
+};
+
+typedef
+typedef unsigned long NATUERLICHE_ZAHL;
+typedef struct meinStruct {} neuerName;
+neuerName = 123;

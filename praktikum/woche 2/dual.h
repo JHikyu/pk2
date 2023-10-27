@@ -1,0 +1,1 @@
+void dual(int x);

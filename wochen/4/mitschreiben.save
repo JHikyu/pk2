@@ -1,0 +1,38 @@
+	!!Pointer!!
+Definition (Typ* zeiger)
+Adresse (&variable)
+Pointer Value (*zeigerþ)
+
+int* ptr;
+int i = 5;
+ptr = &i;
+
+int arr[100];
+int* ptr = feld; // Erster index ptr
+ptr+1 = *feld[1]
+
+int *const ptr = 1; // Pointer konstant
+const int* ptr = 2; // Inhalt konstant
+const int *const ptr = 3; // Alles konstant
+
+
+	Speicherverwaltung
+Statischer Speicherbereich
+- Globale Variablen (Dadurch immer feste Adresse)
+Stack Bereich
+- Lokale Variablen (Gibt es nur in Scopes)
+Heap Bereich
+- malloc, free
+
+Klassen
+auto
+- scoped
+register
+- empfehlung fuer das programmin cpu register zu speichern
+- extrem schnell
+static (lokal)
+- variable existiert immer (nicht gescoped)
+extern
+- Ã¼berschreibe globale variable von innen
+static (global)
+- strikter zugriff (extern verboten)
